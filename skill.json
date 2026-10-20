@@ -1,0 +1,65 @@
+{
+  "name": "genpark-personal-agent-respiratory-sinus-arrhythmia-vagal-tone-skill",
+  "version": "1.0.0",
+  "title": "Respiratory Sinus Arrhythmia RSA & Vagal Tone Copilot Skill",
+  "description": "Continuous heart rate variability (HRV) RMSSD to Respiratory Sinus Arrhythmia (RSA) coupling analyzer, autonomic nervous system stress sentinel, and paced biofeedback breathing pacer. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "hrv",
+    "vagal-tone",
+    "respiratory-sinus-arrhythmia",
+    "biofeedback",
+    "autonomic-nervous-system",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "evaluate_vagal_tone_index",
+      "description": "Compute parasympathetic vagal tone and stress recovery balance from high-frequency HRV (RMSSD and HF-power) telemetry.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rmssd_ms": {
+            "type": "number",
+            "description": "Root mean square of successive differences in ms"
+          },
+          "resting_hr_bpm": {
+            "type": "integer"
+          },
+          "sdnn_ms": {
+            "type": "number"
+          },
+          "subjective_stress_score_1_to_10": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "rmssd_ms",
+          "resting_hr_bpm"
+        ]
+      }
+    },
+    {
+      "name": "generate_paced_resonance_breathing_session",
+      "description": "Synthesize a 5.5 breaths-per-minute heart-rate coherence resonant breathing protocol to stimulate the vagus nerve.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_duration_minutes": {
+            "type": "integer"
+          },
+          "target_vagal_boost_pct": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "session_duration_minutes"
+        ]
+      }
+    }
+  ]
+}
